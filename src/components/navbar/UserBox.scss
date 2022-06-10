@@ -1,0 +1,51 @@
+@import '../../styles/mixins.scss';
+
+.user-sub-nav {
+	position: absolute;
+	right: 0;
+	width: 100vw;
+	height: 200px;
+	z-index: 9999;
+	display: flex;
+	.user-box-contents {
+		width: 380px;
+		margin-left: auto;
+		position: relative;
+		padding: 1rem;
+		background-color: #fff;
+		border-radius: 5px;
+		color: var(--secondary-color);
+		@include flexCol();
+		.user-box-top {
+			border-bottom: 1px solid lightgray;
+			@include alignCenter();
+			justify-content: space-between;
+			font-family: var(--primaryFont);
+			font-size: 1.2rem;
+			width: 100%;
+			padding-bottom: 1rem;
+			img {
+				max-width: 30px;
+			}
+		}
+
+		.user-links {
+			border-bottom: 1px solid lightgray;
+			a {
+			}
+		}
+		.user-controls,
+		.user-links {
+			height: 50px;
+			@include alignCenter();
+			color: var(--secondary-color);
+			width: 100%;
+			gap: 1rem;
+			.logout-btn {
+			}
+			p {
+				cursor: pointer;
+			}
+		}
+	}
+}

@@ -1,0 +1,89 @@
+@import '../../styles/mixins.scss';
+
+.game-box {
+	width: 100%;
+	height: auto;
+	display: flex;
+	font-family: 'Roboto', sans-serif;
+
+	.game {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+		padding: 1rem 0;
+		justify-content: space-between;
+		@include phone() {
+			gap: 1rem;
+		}
+		input {
+			display: none;
+		}
+		.box {
+			height: 70px;
+			width: 40%;
+			display: flex;
+			align-items: center;
+			box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+			border-radius: 5px;
+			padding: 1rem;
+			cursor: pointer;
+			color: var(--secondary-color-lighter);
+			@include phone() {
+				width: 100%;
+			}
+			&:hover {
+				box-shadow: none;
+				transition: all 100ms ease-in-out;
+			}
+		}
+		.highlight {
+			background: #ffffaa;
+			color: black;
+		}
+		.no-pick {
+			background-color: #e2e2e4;
+			&:hover {
+				cursor: not-allowed;
+			}
+		}
+		.logo {
+			height: 100%;
+			width: 20%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 1rem;
+			.team-logo {
+				max-width: 30px;
+			}
+		}
+		.abbr {
+			display: none;
+		}
+		.team-id {
+			height: 100%;
+			width: 55%;
+			.desktop-name {
+				font-size: 0.9rem;
+				@include phone() {
+					display: none;
+				}
+			}
+			.mobile-name {
+				display: none;
+				@include phone() {
+					display: flex;
+				}
+			}
+		}
+		.game-time {
+			@include phone() {
+				display: none;
+			}
+		}
+	}
+	.hide-pick-boxes {
+		display: none;
+	}
+}

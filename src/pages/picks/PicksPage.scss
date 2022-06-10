@@ -1,0 +1,16 @@
+.picks-page {
+	padding: var(--padding);
+}
+
+.make-picks-page {
+	padding-bottom: 4rem;
+
+	.add-btn {
+		background-color: var(--secondary-color-lighter);
+		color: white;
+		padding: 10px 30px;
+		width: 100%;
+		height: 50px;
+		font-family: var(--secondaryFont);
+	}
+}

@@ -1,0 +1,60 @@
+@import './variables.scss';
+@import './mixins.scss';
+@import './forms.scss';
+
+// Roboto - google font
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+// Oswald - google font
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto&display=swap');
+
+// Source sans pro - google font - for gamebar
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	background-color: var(--primary-color);
+}
+
+.App {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+}
+
+@media only screen and (max-width: 900px) {
+	.App {
+		padding: 0;
+	}
+}
+button {
+	border: unset;
+	background: unset;
+	font: unset;
+	color: unset;
+	cursor: pointer;
+}
+
+a {
+	color: unset;
+	text-decoration: unset;
+	@include link();
+}
+
+ul {
+	list-style-type: none;
+}
+
+input,
+textarea {
+	color: unset;
+	background: unset;
+	font: unset;
+	border: unset;
+	border: 1px solid lightgray;
+	font-size: 0.8rem;
+}

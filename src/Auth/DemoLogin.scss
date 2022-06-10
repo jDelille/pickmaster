@@ -1,0 +1,31 @@
+@import '../styles/mixins.scss';
+
+.demo-login-page {
+	input,
+	label {
+		display: none;
+	}
+	.demo-submit-btn {
+		text-decoration: underline;
+		position: relative;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		color: var(--text-color);
+		z-index: 1;
+		.right-arrow {
+			height: 100%;
+			margin-left: 0.5rem;
+			font-weight: bolder;
+			color: var(--lighter-primary);
+		}
+	}
+}
+
+// PHONE SIZE
+@include phone {
+	.demo-submit-btn {
+		font-size: 1.2rem;
+		gap: 1rem;
+	}
+}
