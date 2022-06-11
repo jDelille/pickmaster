@@ -95,8 +95,6 @@ const PicksPage = ({ sortedGames, data, labels }) => {
     }
   }
 
-
-
   return (
     <div className='picks-page'>
       {picks.length > 0

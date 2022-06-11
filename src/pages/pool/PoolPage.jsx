@@ -68,7 +68,6 @@ const PoolPage = ({ labels, setRegister, setLogin, register, login }) => {
     }, 1000);
   }, []);
 
-  const [forceOpen, setForceOpen] = useState(true)
 
 
   return (
@@ -81,10 +80,10 @@ const PoolPage = ({ labels, setRegister, setLogin, register, login }) => {
         return <ExpertPicks item={item} key={i} labels={labels} />;
       })}
       {register && !user && (
-        <Register setRegister={setRegister} setLogin={setLogin} forceOpen={forceOpen} />
+        <Register setRegister={setRegister} setLogin={setLogin} />
       )}
       {login && !user && (
-        <Login setLogin={setLogin} setRegister={setRegister} forceOpen={forceOpen} />
+        <Login setLogin={setLogin} setRegister={setRegister} />
       )}
     </div>
   )
