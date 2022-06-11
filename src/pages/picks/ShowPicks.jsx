@@ -28,7 +28,7 @@ function ShowPicks({ picks, getPicks }) {
         <div className="entry-status">
           <p> Compete </p>
         </div>
-        <div className="show-picks">
+        <div className="show-picked">
           {!picks ? (
             <p> Loading </p>
           ) : (

@@ -50,7 +50,7 @@
 		.entry-status {
 			width: 20%;
 		}
-		.show-picks {
+		.show-picked {
 			display: flex;
 			width: 100%;
 			justify-content: center;
@@ -95,14 +95,14 @@
 
 // LAPTOP SIZE
 @include laptop {
-	.show-picks {
+	.show-picked {
 		padding: 0rem 8rem;
 	}
 }
 
 // PHONE SIZE
 @include phone {
-	.show-picks {
+	.show-picked {
 		padding: 0rem 2rem;
 		.labels {
 			display: none;

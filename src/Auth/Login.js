@@ -8,7 +8,7 @@ import './AuthPages.scss';
 import UserContext from '../context/UserContext';
 import domain from '../util/domain';
 
-function Login({ setLogin, setRegister }) {
+function Login({ setLogin, setRegister, forceOpen }) {
 	const [formEmail, setFormEmail] = useState('');
 	const [formPassword, setFormPassword] = useState('');
 	const [errorMessage, setErrorMessage] = useState(null);
@@ -45,7 +45,9 @@ function Login({ setLogin, setRegister }) {
 			<div className='register-overlay'></div>
 
 			<div className='auth-form-login'>
-				<p className='close-modal' onClick={() => setLogin(false)}>
+				<p
+					className={forceOpen ? 'hide' : 'close-modal'}
+					onClick={() => setLogin(false)}>
 					&#10006;
 				</p>{' '}
 				<h2> Member Login </h2>

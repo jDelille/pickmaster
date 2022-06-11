@@ -5,7 +5,6 @@ function ExpertPicks({ item, labels }) {
 
  const [expertPick, setExpertPick] = useState([]);
 
-
  useEffect(() => {
   let picksArr = [];
   picksArr.push(item.picks);
@@ -30,7 +29,6 @@ function ExpertPicks({ item, labels }) {
 
 
  return (
-
   expertPick.length === labels.length && (
    <div className="player-pick-box">
     <div className="pick">
@@ -39,25 +37,18 @@ function ExpertPicks({ item, labels }) {
     <div className="show-picks">
      {expertPick.map((picks, index) => {
       return (
-       <div className="pick-box" key={index}
-       >
+       <div className="pick-box" key={index}>
         <img
-         src={`../mlb-icons/${picks.team_id}.svg`
-         }
+         src={`../mlb-icons/${picks.team_id}.svg`}
          className={picks.result === 'win' ? "winner-logo" : picks.result === 'loss' ? 'loser-logo' : 'logo'}
          alt={picks.team_id}
         />
        </div>
-
       )
      })}
     </div>
-
-
    </div>
   )
-
-
  );
 }
 

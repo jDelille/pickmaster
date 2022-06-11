@@ -20,7 +20,7 @@ function Router() {
 
 	// fetch schedule from backend
 	useEffect(() => {
-		fetch(`${domain}/schedule/${date - 1}`)
+		fetch(`${domain}/schedule/${date}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setData(data.events);

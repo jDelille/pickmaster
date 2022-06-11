@@ -1,16 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import domain from '../../util/domain';
 import './ExpertPicks.scss'
 const GameLabels = () => {
 
   const [labels, setLabels] = useState([])
 
-  let num = 64;
+  const num = useRef(66)
+
+  let date = new Date();
+  useEffect(() => {
+    if (date.getHours() === 23 && date.getMinutes() === 36) {
+      num.current += 1
+    }
+  }, [])
 
 
   // fetch schedule from backend
   useEffect(() => {
-    fetch(`${domain}/labels/${num}`)
+    fetch(`${domain}/labels/${num.current}`)
       .then((res) => res.json())
       .then((data) => {
         setLabels(data);

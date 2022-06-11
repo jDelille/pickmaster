@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import domain from '../../util/domain';
 import ExpertPicks from './ExpertPicks';
 import '../../styles/Pages.scss'
@@ -16,18 +16,38 @@ const PoolPage = ({ labels, setRegister, setLogin, register, login }) => {
   const { user } = useContext(UserContext);
 
 
+
+
+
   // set the day to use as a param in fetch
-  let num = 64;
+
+  const num = useRef(66)
+
+  // // change the number once a day
+
+  let date = new Date();
+  useEffect(() => {
+    if (date.getHours() === 23 && date.getMinutes() === 36) {
+      num.current += 1
+    }
+  }, [])
+
+
+  console.log(num.current)
+
+
+
 
   // fetch expert picks from backend
   // check for date change (implement later)
   useEffect(() => {
-    fetch(`${domain}/expert-picks/${num}`)
+    fetch(`${domain}/expert-picks/${num.current}`)
       .then((res) => res.json())
       .then((data) => {
         setExpertPicks(data.picks);
+        console.log('yo')
       });
-  }, [num]);
+  }, [num.current]);
 
   async function getAllPicks() {
     let data = await axios.get(`${domain}/pool/`);
@@ -48,6 +68,8 @@ const PoolPage = ({ labels, setRegister, setLogin, register, login }) => {
     }, 1000);
   }, []);
 
+  const [forceOpen, setForceOpen] = useState(true)
+
 
   return (
     <div className='page'>
@@ -59,10 +81,10 @@ const PoolPage = ({ labels, setRegister, setLogin, register, login }) => {
         return <ExpertPicks item={item} key={i} labels={labels} />;
       })}
       {register && !user && (
-        <Register setRegister={setRegister} setLogin={setLogin} />
+        <Register setRegister={setRegister} setLogin={setLogin} forceOpen={forceOpen} />
       )}
       {login && !user && (
-        <Login setLogin={setLogin} setRegister={setRegister} />
+        <Login setLogin={setLogin} setRegister={setRegister} forceOpen={forceOpen} />
       )}
     </div>
   )

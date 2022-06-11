@@ -19,7 +19,7 @@ const Home = ({ setRegister, setLogin, register, login, sortedGames, videos }) =
     <Login setLogin={setLogin} setRegister={setRegister} />
    )}
    <div className="hero">
-    <h1> MLB Pickem </h1>
+    <h1> Pickmaster </h1>
     <p> Make your picks and compete </p>
     {!user &&
      <div className='btns'>

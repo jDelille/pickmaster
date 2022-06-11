@@ -1,15 +1,13 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import ErrorMessage from '../misc/ErrorMessage';
 import './AuthForm.scss';
 import './AuthPages.scss';
-import { data } from './team';
 import UserContext from '../context/UserContext';
 import domain from '../util/domain';
 
-function Register({ setRegister, setLogin }) {
+function Register({ setRegister, setLogin, forceOpen }) {
 	const [formEmail, setFormEmail] = useState('');
 	const [formPassword, setFormPassword] = useState('');
 	const [formPasswordConfirm, setFormPasswordConfirm] = useState('');
@@ -48,16 +46,13 @@ function Register({ setRegister, setLogin }) {
 		history.push('/');
 	}
 
-	function selectTeam() {
-		let favTeam = document.getElementById('fav-team').value;
-		setFormFavTeam(favTeam);
-	}
-
 	return (
 		<div className='register-page'>
 			<div className='register-overlay'></div>
 			<div className='auth-form-register'>
-				<p className='close-modal' onClick={() => setRegister(false)}>
+				<p
+					className={forceOpen ? 'hide' : 'close-modal'}
+					onClick={() => setRegister(false)}>
 					&#10006;
 				</p>
 				<h2> Register </h2>
@@ -99,18 +94,6 @@ function Register({ setRegister, setLogin }) {
 							onChange={(e) => setFormPasswordConfirm(e.target.value)}
 							placeholder='Confirm password'
 						/>
-						{/* <label htmlFor='fav-team'>Choose your favorite team</label> */}
-						{/* <select id='fav-team' onChange={selectTeam}>
-							<option> Choose a team </option>
-
-							{data.map((option, index) => {
-								return (
-									<option key={index} value={option}>
-										{option}
-									</option>
-								);
-							})}
-						</select> */}
 					</div>
 					<button className='submit-btn' type='submit'>
 						Create account
