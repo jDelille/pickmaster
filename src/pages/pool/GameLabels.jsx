@@ -5,7 +5,7 @@ const GameLabels = () => {
 
   const [labels, setLabels] = useState([])
 
-  const num = useRef(66)
+  const num = useRef(68)
 
   let date = new Date();
   useEffect(() => {
@@ -23,6 +23,8 @@ const GameLabels = () => {
         setLabels(data);
       });
   }, []);
+
+  console.log(labels)
 
 
   return (

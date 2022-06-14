@@ -21,7 +21,7 @@ const PoolPage = ({ labels, setRegister, setLogin, register, login }) => {
 
   // set the day to use as a param in fetch
 
-  const num = useRef(66)
+  const num = useRef(68)
 
   // // change the number once a day
 
@@ -32,12 +32,6 @@ const PoolPage = ({ labels, setRegister, setLogin, register, login }) => {
     }
   }, [])
 
-
-  console.log(num.current)
-
-
-
-
   // fetch expert picks from backend
   // check for date change (implement later)
   useEffect(() => {
@@ -45,9 +39,8 @@ const PoolPage = ({ labels, setRegister, setLogin, register, login }) => {
       .then((res) => res.json())
       .then((data) => {
         setExpertPicks(data.picks);
-        console.log('yo')
       });
-  }, [num.current]);
+  }, []);
 
   async function getAllPicks() {
     let data = await axios.get(`${domain}/pool/`);

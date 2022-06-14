@@ -22,7 +22,6 @@ const News = () => {
       });
   }, [date]);
 
-  console.log(data)
 
 
 

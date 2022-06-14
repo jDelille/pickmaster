@@ -5,6 +5,7 @@ import './Gamebar.scss';
 
 const Gamebar = ({ sortedGames }) => {
 
+
  const scrollRight = () => {
   let container = document.getElementById('container');
   sideScroll(container, 'right', 0, 420, 10);
