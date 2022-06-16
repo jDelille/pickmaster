@@ -5,26 +5,27 @@ const GameLabels = () => {
 
   const [labels, setLabels] = useState([])
 
-  const num = useRef(68)
+  // const num = useRef(69)
 
-  let date = new Date();
-  useEffect(() => {
-    if (date.getHours() === 23 && date.getMinutes() === 36) {
-      num.current += 1
-    }
-  }, [])
+  // let date = new Date();
+  // useEffect(() => {
+  //   if (date.getHours() === 23 && date.getMinutes() === 36) {
+  //     num.current += 1
+  //   }
+  // }, [])
+
+  let num = 70;
 
 
   // fetch schedule from backend
   useEffect(() => {
-    fetch(`${domain}/labels/${num.current}`)
+    fetch(`${domain}/labels/${num}`)
       .then((res) => res.json())
       .then((data) => {
         setLabels(data);
       });
   }, []);
 
-  console.log(labels)
 
 
   return (
@@ -46,9 +47,9 @@ const GameLabels = () => {
                   <p className='score'>0</p>
                 )}
                 <p className='score'> {item.live_home_team_score}</p>
-                {item.game_state === 'InProgress' ? (
+                {item.additional_data.Status === 'InProgress' ? (
                   <p className='live'>Live</p>
-                ) : item.game_state === 'Final' ? (
+                ) : item.additional_data.Status === 'Final' ? (
                   <p className='final'>Final</p>
                 ) : (
                   <p className='versus'> vs</p>

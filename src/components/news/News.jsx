@@ -15,16 +15,12 @@ const News = () => {
 
   // fetch schedule from backend
   useEffect(() => {
-    fetch(`${domain}/schedule/${date}`)
+    fetch(`${domain}/news/${date}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data.videos);
       });
-  }, [date]);
-
-
-
-
+  }, []);
 
   return (
     <div className="news">
@@ -33,10 +29,9 @@ const News = () => {
         <h1> MLB News </h1>
       </div>
       <div className="show-news">
-        {data.map((news, index) => {
-          return <div className="news-card">
+        {data?.map((news, index) => {
+          return <div className="news-card" key={index}>
             <div className="img-container">
-
               <video src={news.links.source.HD.href} controls poster={news.posterImages.wide.href}></video>
             </div>
             <div className="text">

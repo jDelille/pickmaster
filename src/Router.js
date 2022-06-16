@@ -20,13 +20,12 @@ function Router() {
 
 	// fetch schedule from backend
 	useEffect(() => {
-		fetch(`${domain}/schedule/${date - 1}`)
+		fetch(`${domain}/schedule`)
 			.then((res) => res.json())
 			.then((data) => {
 				setData(data.events);
-				setVideos(data.videos);
 			});
-	}, [date]);
+	}, []);
 
 	// sort games by id
 	let sortedGames = data.sort(function (a, b) {
@@ -35,8 +34,6 @@ function Router() {
 
 	const [register, setRegister] = useState(false);
 	const [login, setLogin] = useState(false);
-
-	const { user } = useContext(UserContext);
 
 	return (
 		<BrowserRouter>
@@ -54,7 +51,6 @@ function Router() {
 						setLogin={setLogin}
 						register={register}
 						login={login}
-						videos={videos}
 					/>
 				</Route>
 				<Route exact path='/picks'>

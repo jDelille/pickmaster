@@ -21,7 +21,7 @@ const PoolPage = ({ labels, setRegister, setLogin, register, login }) => {
 
   // set the day to use as a param in fetch
 
-  const num = useRef(68)
+  const num = useRef(71)
 
   // // change the number once a day
 
